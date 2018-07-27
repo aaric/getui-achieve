@@ -1,0 +1,12 @@
+# Spring settings
+spring:
+    profiles:
+        active: dev
+
+# 第三方推送-个推
+getui:
+    appId: appId
+    appKey: appKey
+    masterSecret: masterSecret
+    sdkUrl: "http://sdk.open.api.igexin.com/apiex.htm"
+    logoUrl: logoUrl

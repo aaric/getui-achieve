@@ -1,0 +1,57 @@
+group 'com.github.aaric'
+version '0.1.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    jcenter()
+    maven { url "http://mvn.gt.igexin.com/nexus/content/groups/public/"}
+}
+
+dependencies {
+    compile("org.slf4j:slf4j-api:1.7.+")
+
+    compile("org.apache.commons:commons-lang3:3.+")
+    compile("com.gexin.platform:gexin-rp-sdk-http:4.0.1.+")
+
+    compile("org.springframework.boot:spring-boot-starter:1.5.+")
+    compile("org.springframework.boot:spring-boot-starter-log4j2:1.5+")
+
+    testCompile("junit:junit:4.+")
+    testCompile("org.springframework.boot:spring-boot-starter-test:1.5.+")
+}
+
+configurations {
+    compile.exclude group: "org.springframework.boot", module: 'spring-boot-starter-logging'
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+    options.compilerArgs << "-Xlint:unchecked"
+}
+
+compileTestJava {
+    options.encoding = "UTF-8"
+    options.compilerArgs << "-Xlint:unchecked"
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives jar
+    archives sourcesJar
+}
+
+defaultTasks "assemble"
