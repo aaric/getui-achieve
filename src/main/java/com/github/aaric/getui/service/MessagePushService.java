@@ -11,7 +11,7 @@ import java.util.List;
 public interface MessagePushService {
 
     /**
-     * 推送消息给某个用户
+     * 推送消息给某个用户(iOS终端)
      *
      * @param msgTitle     消息标题，可选
      * @param msgText      消息内容，可选
@@ -19,7 +19,18 @@ public interface MessagePushService {
      * @param clientId     客户端ID
      * @return 任务ID
      */
-    String pushToSingle(String msgTitle, String msgText, String transContent, String clientId);
+    String pushToSingleToApple(String msgTitle, String msgText, String transContent, String clientId);
+
+    /**
+     * 推送消息给某个用户(android终端)
+     *
+     * @param msgTitle     消息标题，可选
+     * @param msgText      消息内容，可选
+     * @param transContent 透传内容，必须
+     * @param clientId     客户端ID
+     * @return 任务ID
+     */
+    String pushToSingleToAndroid(String msgTitle, String msgText, String transContent, String clientId);
 
     /**
      * 推送消息给一个用户集合

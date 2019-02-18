@@ -1,12 +1,12 @@
 # Spring settings
 spring:
-    profiles:
-        active: dev
+  profiles:
+    active: dev
 
-# 第三方推送-个推
+# GeTui settings
 getui:
-    appId: appId
-    appKey: appKey
-    masterSecret: masterSecret
-    sdkUrl: "http://sdk.open.api.igexin.com/apiex.htm"
-    logoUrl: logoUrl
+  appId: ${GETUI_APPID}
+  appKey: ${GETUI_APPKEY}
+  masterSecret: ${GETUI_MASTERSECRET}
+  sdkUrl: "http://sdk.open.api.igexin.com/apiex.htm"
+  logoUrl: ${GETUI_LOGOURL}
